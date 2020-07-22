@@ -1,3 +1,38 @@
-h1 {
-    color: blue;
+@font-face {
+    font-family: earwig_factory;
+    src: url(earwig_factory/earwig\ factory\ rg.ttf);
+}
+html {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    font-family: earwig_factory;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('./media/city_day.jpg');
+    width: 100%;
+    height: 100%;
+}
+#clock {
+    position: relative;
+    font-size: 100px;
+    color: crimson;
+}
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#timeTypes input{
+    position: relative;
+    margin-left: 25px;
+}
+#timeTypes {
+    position: relative;
+}
+label {
+    color: white;
 }
