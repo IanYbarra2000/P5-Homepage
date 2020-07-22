@@ -2,9 +2,17 @@
 <html>
     <head>
         <link href="style.css" type="text/css" rel='stylesheet'>
+        <script type='text/javascript' src="UiController.js" defer></script>
         <script type='text/javascript' src="clockRunner.js" defer></script>
+        <script type='text/javascript' src="weather.js" defer></script>
     </head>
     <body>
+        <div id='weather-images'>
+            <img id='cloudy' src="media/Assembled Assets/Assembled Assets/Weather/gifs/cloudy.gif">
+            <img id='sunny' src="media/Assembled Assets/Assembled Assets/Weather/gifs/sunny.gif">
+            <img id='rainy' src="media/Assembled Assets/Assembled Assets/Weather/gifs/rainy.gif">
+            <img id='snowy' src="media/Assembled Assets/Assembled Assets/Weather/gifs/snowy.gif">
+        </div>
         <div id='clock' class='centered'></div>
         <div id='timeTypes' class='centered'>
             <input type="radio" name="time" id="24" >

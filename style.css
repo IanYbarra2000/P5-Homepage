@@ -11,9 +11,20 @@ html {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('./media/city_day.jpg');
+    background-image: url('./media/backgrounds/city_day.jpg');
     width: 100%;
     height: 100%;
+}
+#weather-images img {
+    display: none;
+}
+.display-override {
+    display: block !important;
+    position: absolute;
+    top:0;
+    width: 150px;
+    height: 150px;
+
 }
 #clock {
     position: relative;

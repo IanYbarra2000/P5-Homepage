@@ -5,6 +5,7 @@ function updateTime(){
     let minute=time.getMinutes();
     let second=time.getSeconds();
     let half='';
+    const controller = new UiController();
     //format hours to conform to 12 hour time
     if(time12){
         if(time.getHours()===0) {
@@ -35,7 +36,7 @@ function updateTime(){
         }
     }
     //set the html of clock to the current time
-    document.getElementById('clock').innerHTML=hour+":"+minute+":"+second+' '+half;
+    controller.changeTime(hour,minute,second,half);
     setTimeout(updateTime,1000);
 }
 document.getElementById('12').addEventListener('change',changeTimeType);
