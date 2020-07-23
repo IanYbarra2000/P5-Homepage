@@ -1,6 +1,9 @@
 let time12=true;
 function updateTime(){
     let time= new Date();
+    let dow= time.getDay();
+    let month=time.getMonth();
+    let day=time.getDate();
     let hour=time.getHours();
     let minute=time.getMinutes();
     let second=time.getSeconds();
@@ -36,7 +39,7 @@ function updateTime(){
         }
     }
     //set the html of clock to the current time
-    controller.changeTime(hour,minute,second,half);
+    controller.changeTime(month,day,dow,hour,minute,second,half);
     setTimeout(updateTime,1000);
 }
 document.getElementById('12').addEventListener('change',changeTimeType);
@@ -50,4 +53,5 @@ function changeTimeType() {
         time12=false;
     }
 }
+
 updateTime();

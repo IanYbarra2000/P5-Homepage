@@ -18,12 +18,49 @@ html {
 #weather-images img {
     display: none;
 }
-.display-override {
+#date-images img {
+    display: none;
+}
+.display-override-day {
+    display: block !important;
+    position: absolute;
+    top: 25px;
+    left:105px;
+    width: 192px;
+    height: 189px;
+}
+.display-override-tod {
+    display: block !important;
+    position: absolute;
+    top: 250px;
+    left:0px;
+    width: 184px;
+    height: 122px;
+}
+.display-override-dow {
+    display: block !important;
+    position: absolute;
+    top: 125px;
+    left:100px;
+    width: 231px;
+    height: 140px;
+}
+.display-override-month {
+    display: block !important;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    width: 130px;
+    height: 130px;
+    z-index: 0;
+}
+.display-override-weather {
     display: block !important;
     position: absolute;
     top:0;
-    width: 150px;
-    height: 150px;
+    left: 270px;
+    width: 187.5px;
+    height: 187.5px;
 
 }
 #clock {
