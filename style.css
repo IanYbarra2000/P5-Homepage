@@ -63,6 +63,9 @@ html {
     height: 187.5px;
 
 }
+.display-override-weather:hover{
+    filter: invert(100%);
+}
 #clock {
     position: relative;
     font-size: 100px;

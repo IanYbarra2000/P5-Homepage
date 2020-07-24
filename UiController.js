@@ -10,6 +10,7 @@ class UiController {
         this.dayNightCycle();
     }
     changeDateImage(month,day){
+        this.disableDateImage();
         document.getElementById(day.toString()).classList.add('display-override-day');
         switch(month){
             case 0:
@@ -51,8 +52,30 @@ class UiController {
             
         }
     }
+    disableDateImage(){
+        this.disableMonthImage();
+        this.disableDayImage();
+    }
+    disableMonthImage(){
+        const els=document.getElementsByClassName('display-override-month');
+        if(els.length>0){
+            let x;
+            for(x of els){
+                x.classList.remove('display-override-month');
+            }
+        }
+    }
+    disableDayImage(){
+        const els=document.getElementsByClassName('display-override-day');
+        if(els.length>0){
+            let x;
+            for(x of els){
+                x.classList.remove('display-override-day');
+            }
+        }
+    }
     changeToDImage(dow,hour,half) {
-
+        this.disableToDImage();
         switch(true) {
             case (hour<5&&half==='AM'):
                 document.getElementById('ev').classList.add('display-override-tod');
@@ -77,7 +100,17 @@ class UiController {
                 break;
         }
     }
+    disableToDImage(){
+        const els=document.getElementsByClassName('display-override-tod');
+        if(els.length>0){
+            let x;
+            for(x of els){
+                x.classList.remove('display-override-tod');
+            }
+        }
+    }
     changeDoWImage(dow) {
+        this.disableDoWImage();
         switch(dow) {
             case 0:
                 document.getElementById('sun').classList.add('display-override-dow');
@@ -100,6 +133,15 @@ class UiController {
             case 6:
                 document.getElementById('sat').classList.add('display-override-dow');
                 break;
+        }
+    }
+    disableDoWImage(){
+        const els=document.getElementsByClassName('display-override-dow');
+        if(els.length>0){
+            let x;
+            for(x of els){
+                x.classList.remove('display-override-dow');
+            }
         }
     }
     changeWeatherIcon(id) {
