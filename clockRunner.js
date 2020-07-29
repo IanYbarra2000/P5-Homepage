@@ -42,16 +42,5 @@ function updateTime(){
     controller.changeTime(month,day,dow,hour,minute,second,half);
     setTimeout(updateTime,1000);
 }
-document.getElementById('12').addEventListener('change',changeTimeType);
-document.getElementById('24').addEventListener('change',changeTimeType);
-
-function changeTimeType() {
-    if(document.getElementById('12').checked){
-        time12=true;
-    }
-    else {
-        time12=false;
-    }
-}
 
 updateTime();

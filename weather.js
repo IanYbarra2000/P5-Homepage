@@ -14,6 +14,7 @@ class weather {
             return response.json();
         }).then((data) => {
             controller.changeWeatherIcon(this.determineWeather(data));
+            controller.dayNightCycle(this.determineSuntimes(data));
             return data;
         })
         .catch((error) =>{

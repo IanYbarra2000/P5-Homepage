@@ -7,7 +7,6 @@ class UiController {
         this.changeDateImage(month,day);
         this.changeDoWImage(dow);
         this.changeToDImage(dow,hour,half);
-        this.dayNightCycle();
     }
     changeDateImage(month,day){
         this.disableDateImage();
@@ -86,7 +85,7 @@ class UiController {
             case (hour<12&&half==='AM'):
                 document.getElementById('mo').classList.add('display-override-tod');
                 break;
-            case (hour<1&&half==='PM'):
+            case (hour===12&&half==='PM'):
                 document.getElementById('lu').classList.add('display-override-tod');
                 break;
             case (hour<4&&half==='PM'):
@@ -168,17 +167,33 @@ class UiController {
                 break;
         }
     }
-    dayNightCycle(){
-        /*
-        const sunRise=w.determineSuntimes()[0];
-        const sunSet=w.determineSuntimes()[1];
+    dayNightCycle(data){
+        const sunRise=data[0];
+        const sunSet=data[1];
         const d=Date.now();
 
         if(d<sunSet.getTime()&&d>sunRise.getTime()){
+            console.log('suntime');
             document.documentElement.style.backgroundImage="url('./media/backgrounds/city_day.jpg')";
         }
         else {
+            console.log('nighttime');
             document.documentElement.style.backgroundImage="url('./media/backgrounds/city_night.jpg')";
-        }*/
+        }
+        
+    }
+    static displayLinks(links){
+        const holder=document.getElementById('link-holder');
+        console.log('displayLinks');
+        const names=Object.keys(links);
+        console.log(names);
+        for(let x=0;x<names.length;x++){
+            console.log('d '+x);
+            holder.innerHTML=holder.innerHTML+
+            `<figure>
+                <img src=${QuickLinks.getIconURL(links[names[x]])}>
+                <figcaption>${names[x]}</figcaption>
+            </figure>`;
+        }
     }
 }
