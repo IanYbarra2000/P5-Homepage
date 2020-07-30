@@ -16,6 +16,10 @@ html {
     height: 100%;
     overflow: hidden;
 }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 #weather-images img {
     display: none;
 }
@@ -110,25 +114,63 @@ label {
 #link-box img {
     width: 25px;
     height: auto;
-    display: inline-block;
+    display: block;
+    align-self: center;
+    flex-shrink: 0;
 }
 #link-holder {
     overflow: hidden;
     
-    height: 200px;
+    height: 190px;
 }
 #link-holder:hover {
     overflow-y: scroll;
 }
 #link-holder figure{
-    display: inline-block;
-    font-size: 10px;
-    width: 30px;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 15px;
+    width: 50px;
     height: auto;
     flex-direction: row;
+    margin: 10px 30px;
     
 }
 #link-holder figcaption {
+    position: relative;
     text-align: center;
+    font-family: 'Comic Sans MS';
+}
+#buttons {
+    position: absolute;
+    right: 5px;
+    bottom: 200px;
+    display: flex;
+}
+#buttons button{
+    margin: 0;
+    font-size: 20px;
+}
+#buttons #commit {
+    display: none;
+    width: fit-content;
+}
+#cancel {
+    display: none;
+}
+#commit img {
+    width: 20px;
+}
+#link-inputs {
+    position: absolute;
+    right: 70px;
+    bottom: 200px;
+    display: none;
+}
+#link-inputs input{
+    width: 100px;
+}
+#link-inputs label {
+    font-size: 12px;
 }
 

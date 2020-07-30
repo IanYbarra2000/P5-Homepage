@@ -183,17 +183,52 @@ class UiController {
         
     }
     static displayLinks(links){
+
         const holder=document.getElementById('link-holder');
         console.log('displayLinks');
         const names=Object.keys(links);
         console.log(names);
+        holder.innerHTML='';
         for(let x=0;x<names.length;x++){
-            console.log('d '+x);
             holder.innerHTML=holder.innerHTML+
-            `<figure>
-                <img src=${QuickLinks.getIconURL(links[names[x]])}>
-                <figcaption>${names[x]}</figcaption>
-            </figure>`;
+            `<a href=${'https://'+links[names[x]]} target='_blank'>
+                <figure>
+                    <img src=${QuickLinks.getIconURL(names[x],links[names[x]])}>
+                    <figcaption>${names[x]}</figcaption>
+                </figure>
+            </a>`;
         }
     }
+    static linkInputMode(){
+        document.getElementById('link-inputs').style.display='flex';
+        document.getElementById('add').style.display='none';
+        document.getElementById('commit').style.display='initial';
+        document.getElementById('cancel').style.display='initial';
+        document.getElementById('remove').style.display='none';
+    }
+    static defaultLinkMode(){
+        document.getElementById('link-inputs').style.display='none';
+        document.getElementById('add').style.display='initial';
+        document.getElementById('commit').style.display='none';
+        document.getElementById('cancel').style.display='none';
+        document.getElementById('remove').style.display='initial';
+    }
+}
+
+document.getElementById('add').onclick=function() {
+    UiController.linkInputMode();
+
+};
+document.getElementById('commit').onclick= function() {
+    const name=document.getElementById('link-name').value;
+    const url=document.getElementById('link-url').value;
+    const q=new QuickLinks();
+    q.addLink(name,url);
+    UiController.displayLinks(q.links);
+    UiController.defaultLinkMode();
+}
+document.getElementById('cancel').onclick = function() {
+    UiController.defaultLinkMode();
+    document.getElementById('link-name').value='';
+    document.getElementById('link-url').value='';
 }
