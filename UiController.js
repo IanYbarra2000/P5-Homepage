@@ -201,6 +201,7 @@ class UiController {
     }
     static linkInputMode(){
         document.getElementById('link-inputs').style.display='flex';
+        document.getElementById('link-url').style.display='initial';
         document.getElementById('add').style.display='none';
         document.getElementById('commit').style.display='initial';
         document.getElementById('cancel').style.display='initial';
@@ -212,6 +213,12 @@ class UiController {
         document.getElementById('commit').style.display='none';
         document.getElementById('cancel').style.display='none';
         document.getElementById('remove').style.display='initial';
+        document.getElementById('link-name').value='';
+        document.getElementById('link-url').value='';
+    }
+    static linkRemoveMode(){
+        this.linkInputMode();
+        document.getElementById('link-url').style.display='none';
     }
 }
 
@@ -220,10 +227,17 @@ document.getElementById('add').onclick=function() {
 
 };
 document.getElementById('commit').onclick= function() {
-    const name=document.getElementById('link-name').value;
-    const url=document.getElementById('link-url').value;
+    const name=document.getElementById('link-name');
+    const url=document.getElementById('link-url');
     const q=new QuickLinks();
-    q.addLink(name,url);
+    if(url.style.display==='none'){
+        q.removeLink(name.value);
+    }
+    else{
+        q.addLink(name.value,url.value);
+    }
+    
+    
     UiController.displayLinks(q.links);
     UiController.defaultLinkMode();
 }
@@ -231,4 +245,7 @@ document.getElementById('cancel').onclick = function() {
     UiController.defaultLinkMode();
     document.getElementById('link-name').value='';
     document.getElementById('link-url').value='';
+}
+document.getElementById('remove').onclick = function() {
+    UiController.linkRemoveMode();
 }
